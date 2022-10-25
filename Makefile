@@ -69,7 +69,7 @@ libbpfgo-dynamic-test: libbpfgo-test-bpf-dynamic
 	CC=$(CLANG) \
 		CGO_CFLAGS=$(CGO_CFLAGS_DYN) \
 		CGO_LDFLAGS=$(CGO_LDFLAGS_DYN) \
-		sudo -E $(GO) test .
+		sudo $(GO) test .
 
 # libbpf: static
 
@@ -185,7 +185,7 @@ helpers-test-static-run: libbpfgo-static
 	CC=$(CLANG) \
 		CGO_CFLAGS=$(CGO_CFLAGS_STATIC) \
 		CGO_LDFLAGS=$(CGO_LDFLAGS_STATIC) \
-		sudo -E $(GO) test -v $(HELPERS)/...
+		sudo $(GO) test -v $(HELPERS)/...
 
 helpers-test-dynamic-run: libbpfgo-dynamic
 	sudo $(GO) test -v $(HELPERS)/...
